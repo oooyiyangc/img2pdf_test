@@ -6,9 +6,6 @@ from PIL import Image
 from pikepdf import Pdf, PdfImage
 
 
-# from deskew import determine_skew
-
-
 def pdfs_to_images(source_path, save_path):
     # Get all PDFS
     all_paths = [source_path]
@@ -78,16 +75,18 @@ if __name__ == '__main__':
     print("Testing pdf 1 ... (should pass)")
     print("Converting .................", pdfs_to_images(os.path.join(root_dir, test_1 + ".pdf"), output_dir))
     print("Matching expected output ...", check_output(os.path.join(output_dir, test_1 + ".jpg"),
-                       os.path.join(expected_output_dir, test_1 + ".jpg")))
+                                                       os.path.join(expected_output_dir, test_1 + ".jpg")))
+
     print("\n============================")
     print("Testing pdf 2 ... (should fail)")
     print("Converting .................", pdfs_to_images(os.path.join(root_dir, test_2 + ".pdf"), output_dir))
     print("Matching expected output ...", check_output(os.path.join(output_dir, test_2 + ".jpg"),
-                       os.path.join(expected_output_dir, test_2 + ".jpg")))
+                                                       os.path.join(expected_output_dir, test_2 + ".jpg")))
 
     print("\n============================")
     print("Testing pdf 3 ... (should fail)")
     print("Converting .................", pdfs_to_images(os.path.join(root_dir, test_3 + ".pdf"), output_dir))
     print("Matching expected output ...", check_output(os.path.join(output_dir, test_3 + ".jpg"),
-                       os.path.join(expected_output_dir, test_3 + ".jpg")))
+                                                       os.path.join(expected_output_dir, test_3 + ".jpg")))
+
     print("============================")
